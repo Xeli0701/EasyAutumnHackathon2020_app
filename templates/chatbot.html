@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="col-md-12 text-center"><h2>Chat with Bot: Hello, {{ user['username'] }}. Let's Start chat!</h2></div>
+
+<div class="container">
+<form action="/chatbot" method="post">
+    <div class="row">
+        <div class="col-md-11"><input type="text" class="form-control" name="messageText" placeholder="今何してる？" autocomplete="off"/></div>
+        <div class="col-md-1"><button type="submit" class="btn btn-primary">Send</button></div>
+    </div>
+    <br>
+</form>
+
+<div class="center-block alert alert-info">タイムライン</div>
+<ul class="center-block"  id='messages'>
+    
+    {% for e in messages %}
+        <p class=" p-3 mb-2 bg-light text-primary">{{ e }}</p>
+    {% endfor %}
+</ul>
+</div>
+
+
+<!-- <script>
+    var ws = new WebSocket("ws://localhost:8000/ws");
+    console.log(ws)
+    ws.onmessage = function(event) {
+        var messages = document.getElementById('messages')
+        var message = document.createElement('li')
+        var content = document.createTextNode(event.data)
+        message.appendChild(content)
+        messages.appendChild(message)
+    };
+    function sendMessage(event) {
+        console.log('send it!')
+        var input = document.getElementById("messageText")
+        ws.send(input.value)
+        input.value = ''
+        event.preventDefault()
+    }
+</script>  -->
+{% endblock %}

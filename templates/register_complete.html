@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-md-10">
+        <h1>Completed!</h1>
+    </div>
+    <div class="col-md-2">
+        <a href="/" class="btn btn-primary">Index</a>
+    </div>
+</div>
+
+<hr>
+<p>Hello, {{ username }}! Login to Chat!
+<p><a href="/chatbot" class="btn btn-primary btn-lg">Login</a></p>
+
+
+{% endblock %}
