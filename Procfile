@@ -1,1 +1,1 @@
-web: uvicorn run:app --workers 4
+web: uvicorn main:app --reload --host=0.0.0.0
